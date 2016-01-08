@@ -42,7 +42,7 @@ while line != "":
     helpfulness_numerator, helpfulness_denominator = helpfulness.split("/")
     helpfulness_numerator = int(helpfulness_numerator)
     helpfulness_denominator = int(helpfulness_denominator)
-    score = float(score)
+    score = int(float(score))
     time = int(time)
 
     row = [review_id, product_id, user_id, profile_name, helpfulness_numerator, helpfulness_denominator, score, time, summary, text]
