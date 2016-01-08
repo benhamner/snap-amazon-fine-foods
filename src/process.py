@@ -22,7 +22,6 @@ while line != "":
         line=f.readline()
         continue
     review_id += 1
-    print(review_id, line)
     product_id   = re.findall(r"^product/productId: (.*)\Z",  line, flags=re.DOTALL)[0].strip()
     user_id      = re.findall(r"^review/userId: (.*)\Z",      f.readline(), flags=re.DOTALL)[0].strip()
     profile_name = re.findall(r"^review/profileName: (.*)\Z", f.readline(), flags=re.DOTALL)[0].strip()
@@ -48,13 +47,6 @@ while line != "":
 
     row = [review_id, product_id, user_id, profile_name, helpfulness_numerator, helpfulness_denominator, score, time, summary, text]
     rows.append(row)
-
-    if review_id==1000:
-        print(1000, row[-1])
-    if review_id==10000:
-        print(10000, row[-1])
-    if review_id==100000:
-        print(10000, row[-1])
 
 data = pd.DataFrame(rows, columns=["Id", "ProductId", "UserId", "ProfileName", "HelpfulnessNumerator", "HelpfulnessDenominator", "Score", "Time", "Summary", "Text"])
 print(data)

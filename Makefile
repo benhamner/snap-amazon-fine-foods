@@ -26,7 +26,7 @@ output/hashes.txt: output/database.sqlite
 	echo "\nCurrent input/ouput md5 hashes:" >> output/hashes.txt
 	md5 output/*.csv >> output/hashes.txt
 	md5 output/*.sqlite >> output/hashes.txt
-	md5 input/*.csv >> output/hashes.txt
+	md5 input/* >> output/hashes.txt
 hashes: output/hashes.txt
 
 release: output/database.sqlite output/hashes.txt
